@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>Gerenciador de Trabahos Acadêmicos</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -19,42 +19,41 @@
 <body class="bg-dark">
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
+      <div class="card-header"><h3>Cadastro de Alunos</h3></div>
       <div class="card-body">
         <form>
           <div class="form-group">
+            <label for="InputRA">RA</label>
+            <input class="form-control" id="InputRA" type="text" aria-describedby="RAHelp" pattern="[0-9]+$" placeholder="Digite seu número de RA." required >
+		  </div>
+		  <div class="form-group">
+            <label for="InputNome">Nome</label>
+            <input class="form-control" id="InputNome" type="text" aria-describedby="nameHelp" placeholder="Digite seu nome." required >          
+          </div>
+          <div class="form-group">
+            <label for="InputEmail">E-mail</label>
+            <input class="form-control" id="InputEmail" type="email" aria-describedby="emailHelp" placeholder="Digite seu E-mail." required >
+          </div>
+		  <div class="form-group">
+            <label for="InputPhone">Telefone</label>
+            <input class="form-control" id="InputPhone" type="tel" aria-describedby="phoneHelp" placeholder="Digite seu telefone." required >
+          </div>
+          <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputName">First name</label>
-                <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                <label for="InputSenha">Senha</label>
+                <input class="form-control" id="InputSenha" type="password" placeholder="Digite a senha." required>
               </div>
               <div class="col-md-6">
-                <label for="exampleInputLastName">Last name</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                <label for="InputConfirma">Confirme a senha</label>
+                <input class="form-control" id="Comfirme a senha" type="password" placeholder="Digite a senha novamente." oninput="validaSenha(this)" required>
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
-              </div>
-              <div class="col-md-6">
-                <label for="exampleConfirmPassword">Confirm password</label>
-                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
-              </div>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
+		  <button type="submit" class="btn btn-primary btn-block" href="login.html">Cadastrar</button>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="login.html">Login Page</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+          <a class="d-block small mt-3" href="login.html">Área de login</a>
         </div>
       </div>
     </div>
@@ -67,3 +66,13 @@
 </body>
 
 </html>
+
+<script>
+function validaSenha (input){ 
+	if (input.value != document.getElementById('InputSenha').value) {
+    input.setCustomValidity('Repita a senha corretamente');
+  } else {
+    input.setCustomValidity('');
+  }
+} 
+</script>
