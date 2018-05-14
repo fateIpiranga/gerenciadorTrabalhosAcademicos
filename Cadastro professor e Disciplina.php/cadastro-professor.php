@@ -63,6 +63,7 @@
 <?php
 
 
+
 	function busca()
 	{
 			$con = new mysqli("baratheon0001.hospedagemdesites.ws","norto_fatecig","freiJoao59","norton_fatecig");
@@ -79,6 +80,7 @@
 			} else {
 				echo "registro não encontrado!";	
 			}
+
 			$con->close();
 	}
 	function remover()
@@ -114,4 +116,5 @@
 			echo "registro alterado com sucesso !";
 			$con->close();
 		}
+
 ?>
