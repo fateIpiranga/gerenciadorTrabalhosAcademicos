@@ -131,7 +131,7 @@ $con = new mysqli("baratheon0001.hospedagemdesites.ws","norto_fatecig","freiJoao
 				  <td><?php echo $dados['dataTrabalho']; ?></td>
 				  
 				  <td><a class="btn btn-success" href="editarTCC.php?codigo=<?php echo $dados['codigo']; ?>" >Alterar</a></td>
-				  <td><a class="btn btn-danger" href="php_action/delete.php?codigo=<?php echo $dados['codigo']; ?>">Excluir</a></td>	
+				  	
 				</tr>
 				<?php endwhile; 
 				mysqli_close($con);	
