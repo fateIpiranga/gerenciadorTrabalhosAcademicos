@@ -1,3 +1,14 @@
+<?php
+
+	$con = new mysqli("baratheon0001.hospedagemdesites.ws","norto_fatecig","freiJoao59","norton_fatecig");
+	mysqli_set_charset($con, "utf8");
+
+	if(mysqli_connect_error()):
+		echo "Erro na conexão: ".mysqli_connect_error();
+	endif;
+	
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>Sistema de Cadastro de TCC</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -17,6 +28,8 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.html">Start Bootstrap</a>
@@ -219,79 +232,102 @@
       </ul>
     </div>
   </nav>
+
+  
   <div class="content-wrapper">
 	
 	<div class="container-fluid">
       
 		<div class="form-area"> 
 	  
-			<form action="">
+			<form action="php_action/create.php" method="POST" enctype="multipart/form-data">
 					  
 				<h1>Cadastro Trabalho Acadêmico</h1>
 				</br>
 						
 				<div class="form-group col-md-8">
 					<label for="titulo">Título:</label>
-					<input type="text" class="form-control" id="titulo" required>
+					<input type="text" class="form-control" id="titulo" name="titulo" >
 				</div>
 						
 				<div class="form-group col-md-8">
 					<label for="subtitulo">Subtítulo:</label>
-					<input type="text" class="form-control" id="subtitulo" required>
+					<input type="text" class="form-control" id="subTitulo" name="subTitulo" >
 				</div>
 					  
 				<div class="form-group col-md-8">
-					<label for="data">Data:</label>
-					<input type="date" class="form-control" id="data" required>
+					<label for="dataTrabalho">Data:</label>
+					<input type="date" class="form-control" id="dataTrabalho" name="dataTrabalho" >
 				</div>
 					  
 				<div class="form-group col-md-8">
-					<label for="palavraschaves">Palavras-chaves:</label>
-					<input type="text" class="form-control" id="palavraschaves" placeholder="Tags" required>
+					<label for="palavrasChaves">Palavras-Chaves:</label>
+					<input type="text" class="form-control" id="palavrasChaves" name="palavrasChaves" placeholder="Separadas por vírgula" >
 				</div>
 					  
 				<div class="form-group col-md-8">
 					<label for="resumo">Resumo:</label>
-					<textarea class="form-control" rows="5" id="resumo" required></textarea>
+					<textarea class="form-control" rows="5" id="resumo" name="resumo" ></textarea>
 				</div>
+				
+				<div class="form-group col-md-8">
+					<label for="resumoIngles">Resumo Inglês:</label>
+					<textarea class="form-control" rows="5" id="resumoIngles" name="resumoIngles" ></textarea>
+				</div>
+				
+				<div class="form-group col-md-8">
+					<label for="curso">Curso:</label>
+					  <select class="form-control" id="curso" name="curso"> 
+						<option name="curso" value="Análise e Desenvolvimente de Sistemas">Análise e Desenvolvimente de Sistemas</option>
+						<option name="curso" value="Eventos" >Eventos</option>
+						<option name="curso" value="Gestão Comercial">Gestão Comercial</option>
+						<option name="curso" value="Gestão de Recursos Humanos">Gestão de Recursos Humanos</option>
+					  </select>
+				</div>
+				
 					  
 				<div class="form-group col-md-8">
 					<label for="orientador">Orientador:</label>
-					<input type="text" class="form-control" id="orientador" required>
+					<input type="text" class="form-control" id="orientador" name="orientador" >
 				</div>
 					  
 				<div class="form-group col-md-8">
 					<label for="aluno1">Nome do Aluno 1:</label>
-					<input type="text" class="form-control" id="aluno1" required>
+					<input type="text" class="form-control" id="aluno1" name="aluno1" >
 				</div>
 					  
 				<div class="form-group col-md-8">
 					<label for="aluno2">Nome do Aluno 2:</label>
-					<input type="text" class="form-control" id="aluno2" required>
+					<input type="text" class="form-control" id="aluno2" name="aluno2">
 				</div>
 					  
 				<div class="form-group col-md-8">
 					<label for="aluno3">Nome do Aluno 3:</label>
-					<input type="text" class="form-control" id="aluno3" required>
+					<input type="text" class="form-control" id="aluno3" name="aluno3">
 				</div>
 					  
 				<div class="form-group col-md-8">
 					<label for="aluno4">Nome do Aluno 4:</label>
-					<input type="text" class="form-control" id="aluno4" required>
+					<input type="text" class="form-control" id="aluno4" name="aluno4">
 				</div>
 					  
 				<div class="form-group col-md-8">
-					<label for="urltrabalho">URL:</label>
-					<input type="url" class="form-control" id="url" >
+					<label for="url">URL:</label>
+					<input type="url" class="form-control" id="url" name="url">
 				</div>
 					  
 				<div class="form-group col-md-8">
-					<label for="trabalho">Documento do Trabalho:</label>
-					<input type="file" class="form-control" id="arquivo" >
+					<label for="arquivo">Documento do Trabalho:</label>
+					<input type="file" class="form-control" id="arquivo" name="arquivo">
 				</div>
-					  
-				<button type="submit" class="btn btn-primary">Cadastrar</button>
-					  
+				
+				<button type="submit" class="btn btn-primary" name="inserir">Cadastrar</button>	
+				<a href="tela_repositorio_academico.php" class="btn btn-success">Lista de Trabalhos</a>
+				
+				<?php
+					mysqli_close($con);
+				?>
+				
 			</form>
 		
 		</div>
@@ -340,3 +376,6 @@
 </body>
 
 </html>
+
+
+
