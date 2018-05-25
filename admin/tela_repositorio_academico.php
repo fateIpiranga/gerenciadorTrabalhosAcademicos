@@ -68,11 +68,18 @@ $con = new mysqli("baratheon0001.hospedagemdesites.ws","norto_fatecig","freiJoao
 	<!-- Mensagem de sucesso ou fracasso ao cadastrar -->
 	<?php
 	session_start();
-	if(isset($_SESSION['mensagem'])):
+	if(isset($_SESSION['mensagem']) && isset($_SESSION['msg'])):
 	?>
 	
-	<div class="alert alert-success">
+	<div class="alert alert-warning">
 		<?php 
+		echo $_SESSION['msg'];
+		?>
+		<?php echo "<br>"?>
+	</div>
+		
+	<div class="alert alert-success">	
+		<?php
 		echo $_SESSION['mensagem']; 
 		?>
 	</div>
