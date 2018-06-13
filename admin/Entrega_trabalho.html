@@ -28,15 +28,15 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label for="faculdade">Faculdade</label>
-				<select name="Curso" class="form-control" id="faculdade" type="text" aria-describedby="faculdadeHelp" placeholder="Escolha a faculdade!">
-					<option value="Error">Escolha a Faculdade</option>
+				<select name="Curso" class="form-control" id="faculdade" type="text" aria-describedby="faculdadeHelp" placeholder="Escolha a faculdade!" required>
+					<option value="Error"></option>
 					<option value="Fatec Ipiranga">Fatec Ipiranga</option>
 				</select>
               </div>
               <div class="col-md-6">
                 <label for="nomeCurso">Curso</label>
-				<select class="form-control"  id="nomeCurso" type="text" aria-describedby="cursoHelp" placeholder="Escolha o Curso!" name="Curso">
-					<option value="Error">Escolha o Curso</option>
+				<select class="form-control"  id="nomeCurso" type="text" aria-describedby="cursoHelp" placeholder="Escolha o Curso!" name="Curso" required>
+					<option value="Error"></option>
 					<option value="Analise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
 					<option value="Eventos">Eventos</option>
 					<option value="Gestão Comercial">Gestão Comercial</option>
@@ -49,8 +49,8 @@
           
 		  <div class="form-group">
             <label for="trabalho">Trabalho</label>
-				<select class="form-control" id="nomeTrabalho" type="text" aria-describedby="textoHelp" placeholder="Escolha o trabalho a ser submetido!" name="Trabalho">
-					<option value="Error">Escolha o Trabalho</option>
+				<select class="form-control" id="nomeTrabalho" type="text" aria-describedby="textoHelp" placeholder="Escolha o trabalho a ser submetido!" name="Trabalho" required>
+					<option value="Error"></option>
 					<option value="Trabalho 1 - ----">Trabalho 1 - ----</option>
 					<option value="Trabalho 2 - ----">Trabalho 2 - ----</option>
 					<option value="Trabalho 3 - ----">Trabalho 3 - ----</option>
@@ -58,30 +58,38 @@
           </div>
           
 		  <div class="form-group">  
+					<label for="DescricaoAtividade">Descrição da Atividade</label></br>
+					<label class="d-block small mt-3" for="HorarioLimite"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae ligula ut mauris rutrum lacinia. Cras euismod ligula ac condimentum faucibus. Nulla facilisi. Proin sed tempus nibh, vitae commodo sem. Aenean sit amet tellus ac justo tincidunt laoreet ac quis est. Curabitur id mauris rutrum turpis ultricies eleifend non sit amet enim. Donec nisi ex, dignissim vitae suscipit vel, scelerisque tincidunt erat. Nam ultrices enim id ornare maximus. Sed diam odio, laoreet sit amet ligula in, maximus pretium quam. Donec fermentum urna eget porttitor condimentum.</label>
+		  </div>
+		  
+		  <div class="form-group">  
 			<div class="form-row">
 				<div class="col-md-6">
-					<label for="DataDeEntregaLimite">Data limite para Submissão</label>
-					<input class="form-control" id="dataLimite" type="date" aria-describedby="dataLimiteHelp" name="dataLimite">          
+					<label for="DataDeEntregaLimite">Data limite para Submissão </label></br>
+					<label label class="d-block small mt-3" for="HorarioLimite">dd/mm/aaaa</label>
+   
 				</div>
 			
 				<div class="col-md-6">
-					<label for="DataDeEntregaLimite">Horário limite para Submissão</label>
-					<input class="form-control" id="horarioLimite" type="time" aria-describedby="horarioLimiteHelp" name="horaLimite">     
+					<label for="DataDeEntregaLimite">Horário limite para Submissão</label></br>
+					<label label class="d-block small mt-3" for="HorarioLimite"> hh:mm:ss </label>					
+ 
 				</div>
 			</div>
 		  
 		   <div class="form-group">  
-					<label for="uploadArquivo">Upload do Documento</label>
-					<input class="form-control" id="uploadArquivo" type="file" aria-describedby="uploadHelp" name="uploadArquivo">          
+					<label for="UrlTrabalho">URL do Trabalho (OneDrive, Drive, ...) </label>
+					<input class="form-control" id="UrlTrabalho" type="Url" aria-describedby="uploadHelp" name="UrlTrabalho" required>          
 				</div>
 				
           </div>
           
-		  <a class="btn btn-primary btn-block" href="index.html">Submeter</a>
+		  <input class="btn btn-primary btn-block" value="Submeter"/>
+
         </form>
 		
         <div class="text-center">
-          <a class="d-block small mt-3" href="faq.html">Dúvidas</a>
+          <a class="d-block small mt-3" href="faq.html">Dúvidas</a> 
         </div>
       </div>
     </div>
