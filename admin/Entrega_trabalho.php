@@ -19,6 +19,7 @@
 </head>
 
 	<!-- Formulário de Submissão de Atividade -->
+
 	
 <body class="bg-dark">
   <div class="container">
@@ -185,9 +186,36 @@
 				
           </div>
           
-		  <input class="btn btn-primary btn-block" value="Submeter"/>
+		  <input class="btn btn-primary btn-block" type="submit" value="Submeter"/>
+<?php
 
+
+$conexao = mysqli_connect($servidor, $usuario, $senha, $bancodedados);
+
+
+mysqli_query($conexao,$sql);
+
+$strSQL = INSERT INTO atividadeentrega ("codigo", "codigoAtividade"`, `urlEntrega`) Values 
+
+$strSQL = "INSERT INTO atividadeentrega(";
+
+	$strSQL = $strSQL . "codigo, ";
+	$strSQL = $strSQL . "codigoAtividade, ";
+	$strSQL = $strSQL . "urlEntrega, ";
+
+	$strSQL = $strSQL . "VALUES(";
+
+	$strSQL = $strSQL . "$_POST["FirstName"]";
+
+	$strSQL = $strSQL . "$_POST["codigoAtividade"]";
+	$strSQL = $strSQL . "$_POST["FirstName"]";
+
+echo "Trabalho cadastrado";
+mysqli_close($conexao);
+?>
         </form>
+		
+		
 		
         <div class="text-center">
           <a class="d-block small mt-3" href="faq.html">Dúvidas</a> 
