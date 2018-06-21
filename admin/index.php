@@ -9,13 +9,13 @@
   <meta name="Michael Araújo" content="">
   <title>SB Admin - Start Bootstrap Template</title>
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="../css/sb-admin.css" rel="stylesheet">
   <!-- Incluse JQuery--> 
-  <script src="gulpfile.js"></script>
+  <script src="../gulpfile.js"></script>
 </head>
 
 	<!-- Formulário de Submissão de Atividade -->
@@ -77,6 +77,27 @@
           </div>
           
 		  <div class="form-group">
+            <label for="trabalho">Disciplina</label>
+				<!-- Aqui é o selec para mostrar a lista suspensa, vamos puxar o menu do banco nesse select-->
+				<select class="form-control" id="disciplina" type="text" aria-describedby="textoHelp" placeholder="Escolha o disciplina!" name="disciplina" required>
+
+					<!-- Aqui temos as options dentro do select, estou atribuindo o valor 0 pra ela, utilizaremos esse value para puxar o código do banco -->
+					<option value="0"> Nenhum menu relacionado</option>
+						
+						<?php
+							$conexao = mysqli_connect("baratheon0001.hospedagemdesites.ws","norto_fatecig","freiJoao59","norton_fatecig");
+							$sql = "select codigo, titulo from turma WHERE codigo>=1";
+							$result = mysqli_query($conexao, $sql);
+							while ($registro = @mysqli_fetch_array($result))
+							{
+								$codigo = $registro ["codigo"];
+								$titulo = $registro ["titulo"];
+								echo"<option value='$codigo'> $titulo </option>";
+							}					
+					?>
+		  </select>              
+          </div>
+		  <div class="form-group">
             <label for="trabalho">Trabalho</label>
 				<!-- Aqui é o selec para mostrar a lista suspensa, vamos puxar o menu do banco nesse select-->
 				<select class="form-control" id="nomeTrabalho" type="text" aria-describedby="textoHelp" placeholder="Escolha o trabalho a ser submetido!" name="nomeTrabalho" required>
@@ -105,6 +126,8 @@
 						// Salvo os resultdos nos campos correspondetes
 								$codigo = $registro ["codigo"];
 								$titulo = $registro ["titulo"];
+								$descritivo = $registro ["descritivo"];
+								$dtFim = $registro ["dtFim"];
 						// Exibo na tela usando o echo e o comendo em htlm		
 								echo"<option value='$codigo'> $titulo </option>";
 
@@ -138,9 +161,11 @@
 							{
 						// Salvo os resultdos nos campos correspondetes
 								$codigo = $registro ["codigo"];
+								$titulo = $registro ["titulo"];
 								$descritivo = $registro ["descritivo"];
+								$dtFim = $registro ["dtFim"];
 						// Exibo na tela usando o echo e o comendo em htlm		
-									echo"$descritivo";
+								echo"<option value='$codigo'> $descritivo </option>";
 							}
 							
 							
@@ -175,9 +200,11 @@
 							{
 						// Salvo os resultdos nos campos correspondetes
 								$codigo = $registro ["codigo"];
+								$titulo = $registro ["titulo"];
+								$descritivo = $registro ["descritivo"];
 								$dtFim = $registro ["dtFim"];
 						// Exibo na tela usando o echo e o comendo em htlm		
-								echo"$dtFim ";
+								echo"<option value='$codigo'> $dtFim </option>";
 							}
 						
 							?>
